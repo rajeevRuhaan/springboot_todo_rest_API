@@ -1,13 +1,9 @@
 package com.todoapp.todoproject.service;
 
+import com.todoapp.todoproject.model.Mail;
 import java.util.Properties;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-
-import com.todoapp.todoproject.model.Mail;
 
 import jakarta.mail.Authenticator;
 import jakarta.mail.Message;
@@ -16,16 +12,13 @@ import jakarta.mail.Session;
 import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
-import jakarta.transaction.Transaction;
+
 
 @Service
 public class EmailServiceImpl implements EmailService {
-    @Autowired private JavaMailSender javaMailSender;
     
-
     @Override
     public String sendEmail(Mail mail) {
-        // TODO Auto-generated method stub
         // get system properties
         Properties properties = new Properties();
         // SMTP host
@@ -55,7 +48,6 @@ public class EmailServiceImpl implements EmailService {
         // variable for gmail
         MimeMessage mailMimeMessage = new MimeMessage(session);
         try {
-           // SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMimeMessage.setFrom(mail.getFrom());
             mailMimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(mail.getTo()));
             mailMimeMessage.setSubject(mail.getSubject());
@@ -67,7 +59,7 @@ public class EmailServiceImpl implements EmailService {
             return "Mail sent successfully";
 
         } catch (Exception e) {
-            // TODO: handle exception
+            e.printStackTrace();
         }
         return null;
     }

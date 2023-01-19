@@ -48,7 +48,5 @@ public class UserServiceimpl implements UserService {
         }
             throw new UserNotFoundException("Unauthorised user"); 
        
-       } 
-    
-    
+       }
 }

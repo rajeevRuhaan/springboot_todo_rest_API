@@ -10,5 +10,6 @@ import com.todoapp.todoproject.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
     public Optional< User> findByEmail(String email);
-    
+    public User findById(Integer id);
+      
 }
