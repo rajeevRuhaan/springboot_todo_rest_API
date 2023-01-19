@@ -35,5 +35,5 @@ work flow:
 - */api/v1/forget_password : this end point take body as email. the email verifies with database and set token. Using JavaMailSender it send password reeset link with token. (need to work on token expiration date verification is the end point hit more than one time.....)
 - */api/v1/password-reset?token=1234 : this end point have token as param and it also need body with reset password. the token need to verify with expiration_date and resetpassword replaced old password.
 
-![alt text](src\main\resources\static\image\forgotpassword.png)
+![alt text](src/main/resources/static/image/forgotpassword.png)
 
