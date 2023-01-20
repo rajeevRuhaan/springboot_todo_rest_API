@@ -20,17 +20,17 @@ Data model
     - Updated timestamp: When the user is last updated
   
 Rest API core features and endpoints
-- **POST** */api/v1/signup*: Sign up as an user of the system, using email & password
--  **POST** */api/v1/signin*: Sign in using email & password. The system will return the JWT token that can be used to call the APIs that follow
-- **PUT** */api/v1/changePassword*: Change user’s password (working on...... )
+- **POST** */api/v1/signup*: Sign up as an user of the system, using email & password(completed)
+-  **POST** */api/v1/signin*: Sign in using email & password. The system will return the JWT token that can be used to call the APIs that follow (completed)
+- **PUT** */api/v1/changePassword*: Change user’s password (completed)
   
- ### ....Project on development phase
-- **GET** */api/v1/todos?status=[status]*: Get a list of todo items. Optionally, a status query param can be included to return only items of specific status. If not present, return all items
-- **POST** */api/v1/todos*: Create a new todo item
-- **PUT** */api/v1/todos/:id*: Update a todo item
-- **DELETE** */api/v1/todos/:id*: Delete a todo item
+ ### ....Project on development phase (ongoing)
+- **GET** */api/v1/todos?status=[status]*: Get a list of todo items. Optionally, a status query param can be included to return only items of specific status. If not present, return all items (not yet started)
+- **POST** */api/v1/todos*: Create a new todo item (**started...)
+- **PUT** */api/v1/todos/:id*: Update a todo item ( not yet started)
+- **DELETE** */api/v1/todos/:id*: Delete a todo item (not yet started)
 
-## Forget password (woking on......)
+## Forget password (completed)
 work flow:
 - */api/v1/forget_password : this end point take body as email. the email verifies with database and set token. Using JavaMailSender it send password reeset link with token. (need to work on token expiration date verification is the end point hit more than one time.....)
 - */api/v1/password-reset?token=1234 : this end point have token as param and it also need body with reset password. the token need to verify with expiration_date and resetpassword replaced old password.

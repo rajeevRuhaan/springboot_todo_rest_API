@@ -1,10 +1,8 @@
 package com.todoapp.todoproject.util;
 
-
- import java.util.Date;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import com.todoapp.todoproject.model.User;
@@ -21,7 +19,8 @@ public class JwtTokenUtil {
     
     public String generateAccessToken (User user) {
         
-        return Jwts.builder().setSubject(String.format("%s,%s", user.getId(), user.getEmail()))
+        return Jwts.builder().setSubject(String.format("%s", user.getEmail()))
+        .setId(String.format("%s", user.getId()))
         .setIssuedAt(new Date())
         .setExpiration(new Date(System.currentTimeMillis() + EXPIRE_DURATION))
         .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
