@@ -1,6 +1,15 @@
 
-## Springboot 17 Rest API application
+## Springboot 17 Rest API application using MySql database
 ### TODO apllication and Authentication
+
+```script
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://localhost:3308/todo_api
+spring.datasource.username=root
+spring.datasource.password=
+
+spring.datasource.driver-calss-name=com.mysql.cj.jdbc.Driver
+```
 
 Data model
 # Todo:
@@ -19,6 +28,7 @@ Data model
     - Created timestamp: When the user is created
     - Updated timestamp: When the user is last updated
   
+### Completed these three end point 
 Rest API core features and endpoints
 - **POST** */api/v1/signup*: Sign up as an user of the system, using email & password(completed)
 -  **POST** */api/v1/signin*: Sign in using email & password. The system will return the JWT token that can be used to call the APIs that follow (completed)
